@@ -1,7 +1,8 @@
 /**
- * User.
+ * User functions.
  *
- * Used by Meeting class
+ * Will become object that is stored in Meeting class. Just a helper function for
+ * getting a meeting owner token.
  *
  */
 
