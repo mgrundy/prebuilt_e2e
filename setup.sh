@@ -42,6 +42,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo -e "\n\nWell, it should be ready to go now. Try it out by running:"
+echo -e "\n\nAdd your API key and domain name to test/config/config.json"
+echo -e "Then you should be all set up. Run the tests with:"
 echo -e "\nnpx wdio \n"
 
