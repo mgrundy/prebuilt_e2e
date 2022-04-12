@@ -1,4 +1,4 @@
-# HI HI HI!!! Welcome.
+# HI HI HI !!!
 
 This toyset of e2e tests runs on node and webdriverio. I tried to structure it in reasonably neat and organized fashion.
 
@@ -17,10 +17,12 @@ this.
 ## Installing
 
 To install clone up the repo:
-   `git clone https://github.com/mgrundy/prebuilt_e2e.git`
+
+`git clone https://github.com/mgrundy/prebuilt_e2e.git`
 
 The repo includeds a shell script `setup.sh`. Setup requires that you have `nodenv` installed.
 Don't worry, I check and make sure it's there. So run:
+
 `bash setup.sh`
 
 If everything completes without an error: Hooray! On to adding your api key. If it failed, then I've failed
@@ -32,6 +34,7 @@ your API key and domain name in the proper spots.
 
 ## Run some tests
 You've made it this far, hopefully without table flips, let's run the tests! From the repo directory run
+
 `npx wdio`
 
 If everything passed you'll get a report at the end of that littany of output that looks like this:
