@@ -1,26 +1,35 @@
-import { setupBrowser } from '@testing-library/webdriverio'
+import { setupBrowser } from "@testing-library/webdriverio";
 // import {screen} from '@testing-library/dom'
-// import {Element, BrowserObject, MultiRemoteBrowserObject} from 'webdriverio' 
+// import {Element, BrowserObject, MultiRemoteBrowserObject} from 'webdriverio'
 
-const JoinPage = require('../pageobjects/joinroom.page');
+// const ConferenceRoom = require('../pageobjects/conferenceroom.page');
+import ConferenceRoom from "../pageobjects/conferenceroom.page";
+import Meeting from "../library/Meeting";
 
-describe('My conference application', () => {
-    before(async () => {
-      setupBrowser(browser)
-    })
+describe("Happy path video conference", () => {
+  let meeting = null;
+  
+  before(async () => {
+    meeting = new Meeting(false);
+    await meeting.cleanup();
+    await meeting.getARoom()
+    setupBrowser(browser);
+  });
 
-    it('should join and leave public room', async () => {
-        await JoinPage.open();
-        await JoinPage.join("Ferb Fletcher")
-        await expect(JoinPage.btnJoin).toBeExisting()
+  after(async () => {
+    await meeting.delete();
+  })
 
-        // Join the meeting
-        await JoinPage.btnJoin.click()
-        await expect(JoinPage.btnLeave).toBeExisting()
-        // Get out.
-        await expect(JoinPage.btnUnMute).toBeExisting()
-        await JoinPage.btnLeave.click()
-    });
+  it("should join and leave public room", async () => {
+    await ConferenceRoom.open(meeting.getName());
+    await ConferenceRoom.join("Ferb Fletcher");
+    await expect(ConferenceRoom.btnJoin).toBeExisting();
+
+    // Join the meeting
+    await ConferenceRoom.btnJoin.click();
+    await expect(ConferenceRoom.btnLeave).toBeExisting();
+    // Get out.
+    await expect(ConferenceRoom.btnUnMute).toBeExisting();
+    await ConferenceRoom.btnLeave.click();
+  });
 });
-
-

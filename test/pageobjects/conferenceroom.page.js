@@ -43,8 +43,8 @@ class ConferenceRoom extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    open () {
-        return super.open('getting-started-webinar');
+    open (meetingName) {
+        return super.open(meetingName);
     }
 }
 
