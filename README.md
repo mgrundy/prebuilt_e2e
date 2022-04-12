@@ -6,9 +6,13 @@ I created a lightweight API interface (in the test/library directory) to do setu
 setting the appropriate privacy setting, and creating access tokens. There are some extra functions in there for things like
 cleaning up all the rooms in case your teardown function doesn't clean up (cough cough).
 
-I gave multiremote a shot, after I built up most of the framing. I thought it would be good to have a browser that could open
-up a room as the leader and let a user join or answer door knocking. Ultimately, I haven't used it before and needed more time
-to get it working than was prudent for a project like this.
+I gave multiremote a shot, after I built up most of the framing. I thought it
+would be good to have a control / test scaffolding browser session that could
+open up a room as the leader and let a user join or answer door knocking while
+the test runner asserted on different apects of the other end of the
+connection. Ultimately, I haven't used it before and needed more time to get it
+working than was prudent for a project like
+this.
 
 ## Installing
 
