@@ -19,15 +19,4 @@ module.exports = {
     userProperties.properties.room_name = roomName;
     return dailyApi.getToken(userProperties)
   }
-
-  
 };
-//  }
-  //   {
-
-  //   {
-  //       "properties": {
-  //         "room_name": "getting-started-webinar",
-  //         "user_name": "Grumplestilskin"
-  //       }
-  //     }
