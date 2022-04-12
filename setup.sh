@@ -1,5 +1,5 @@
 #!/bin/bash
-NODEVERSION=17.9.0
+NODEVERSION=17.8.0
 
 # This is why I can't have nice things
 echo $PATH
