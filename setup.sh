@@ -45,8 +45,3 @@ fi
 echo -e "\n\nWell, it should be ready to go now. Try it out by running:"
 echo -e "\nnpx wdio \n"
 
-
-
-
-#npm install wdio --save-dev
-#npm install @wdio/mocha-framework --save-dev
