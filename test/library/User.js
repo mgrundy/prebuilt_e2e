@@ -1,25 +1,33 @@
 /**
  * User.
  *
- * Used by VideoCall class
+ * Used by Meeting class
  *
- *
- * @param {type}   var           Description.
- * @param {type}   [var]         Description of optional variable.
- * @param {type}   [var=default] Description of optional variable with default variable.
- * @param {Object} objectVar     Description.
- * @param {type}   objectVar.key Description of a key in the objectVar parameter.
- *
- * @yield {type} Yielded value description.
- *
- * @return {type} Return value description.
  */
 
- class User {
-
-    constructor() {
-        
-    }
-    
-    
+import dailyApi from "./DailyApi";
+module.exports = {
+  createOwner: (roomName) => {
+    let userProperties = {
+      properties: {
+        room_name: "getting-started-webinar",
+        is_owner: true,
+        start_cloud_recording: true,
+        user_name: "Instructor",
+      },
+    };
+    userProperties.properties.room_name = roomName;
+    return dailyApi.getToken(userProperties)
   }
+
+  
+};
+//  }
+  //   {
+
+  //   {
+  //       "properties": {
+  //         "room_name": "getting-started-webinar",
+  //         "user_name": "Grumplestilskin"
+  //       }
+  //     }

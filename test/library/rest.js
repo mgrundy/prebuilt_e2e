@@ -20,7 +20,7 @@ module.exports = {
   call: ({ path, method, data }) => {
     const ROOT_URI = `https://api.daily.co/v1/`;
 
-    var fetchConfig = {
+    let requestData = {
       method: method,
       headers: {
         "Content-Type": "application/json",
@@ -29,12 +29,11 @@ module.exports = {
     };
     // Shouldn't have body data for GET or DELETE
     if (data) {
-      fetchConfig.body = JSON.stringify(data);
+      requestData.body = JSON.stringify(data);
     }
 
-    return fetch(`${ROOT_URI}${path}`, fetchConfig).then((resp) => {
+    return fetch(`${ROOT_URI}${path}`, requestData).then((resp) => {
       if (resp.status !== 200) {
-        console.log(path, resp);
         throw new Error(
           `Invalid status code (!= 200) while retrieving ${path}: ${resp.status}`
         );

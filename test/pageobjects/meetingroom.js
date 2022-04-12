@@ -1,9 +1,9 @@
 const Page = require('./page');
 
 /**
- * page containing selectors for conference room interface 
+ * page containing selectors for meeting room interface 
  */
-class ConferenceRoom extends Page {
+class MeetingRoom extends Page {
     /**
      * define selectors using getter methods
      */
@@ -43,9 +43,9 @@ class ConferenceRoom extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    open (meetingName) {
-        return super.open(meetingName);
+    open (meetingName, token=undefined) {
+        return super.open(meetingName, token);
     }
 }
 
-module.exports = new ConferenceRoom();
+module.exports = new MeetingRoom();

@@ -13,8 +13,8 @@ import dailyApi from "./DailyApi";
 module.exports = class Meeting {
   constructor(privacy = true, name = "") {
     this.roomName = name;
-    if (arguments.name) {
-      this.roomName = arguments.name;
+    if (name) {
+      this.roomName = name;
     }
     this.newroom = {
       properties: {
@@ -25,11 +25,13 @@ module.exports = class Meeting {
       },
     };
 
-    this.newroom.privacy = arguments.privacy ? "private" : "public";
+    this.newroom.privacy = privacy ? "private" : "public";
 
     if (name) {
       this.newroom.name = name;
     }
+
+    console.dir(this.newroom)
   }
 
   getARoom() {
@@ -53,14 +55,13 @@ module.exports = class Meeting {
     if (!this.roomName) {
       return;
     }
-    console.log("Deleting " + this.roomName)
+    console.log("Deleting room " + this.roomName)
     return dailyApi.deleteRoom(this.roomName);
   }
 
   cleanup() {
     var grl = dailyApi.getRoomList();
     Promise.resolve(grl).then((rooms) => {
-      console.dir(rooms.count);
       rooms.data.forEach((room) => {
         console.log("Deleting ->" + room.name);
         Promise.resolve(dailyApi.deleteRoom(room.name)).then((resp) =>
