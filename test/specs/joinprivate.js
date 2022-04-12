@@ -10,7 +10,6 @@ describe("Leader joining meeting with token", () => {
   
   before(async () => {
     meeting = new Meeting();
-    await meeting.cleanup();
     await meeting.getARoom();
     // private meeting so get token
     let response = await User.createOwner(meeting.getName())

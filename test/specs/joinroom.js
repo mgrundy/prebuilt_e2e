@@ -6,12 +6,11 @@ import { setupBrowser } from "@testing-library/webdriverio";
 import MeetingRoom from "../pageobjects/meetingroom";
 import Meeting from "../library/Meeting";
 
-describe("Happy path video conference", () => {
+describe("Happy path video call", () => {
   let meeting = null;
   
   before(async () => {
     meeting = new Meeting(false);
-    await meeting.cleanup();
     await meeting.getARoom()
     setupBrowser(browser);
   });
