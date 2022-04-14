@@ -8,12 +8,12 @@ module.exports = {
   /**
    *  checkConfig
    *
-   *  does an api call with no args and checks domain is correct
+   *  does an api makeRequest with no args and checks domain is correct
    *
    * @return {bool} returns true if domain matches config
    */
   checkConfig: () => {
-    return rest.call({ path: "", method: "GET", data: "" }).then((results) => {
+    return rest.makeRequest({ path: "", method: "GET", data: "" }).then((results) => {
       return results.domain_name == config.domainName;
     });
   },
@@ -26,7 +26,7 @@ module.exports = {
    * @return {array} returns array of room objects
    */
   getRoomList: () => {
-    return rest.call({ path: "rooms", method: "GET", data: "" });
+    return rest.makeRequest({ path: "rooms", method: "GET", data: "" });
   },
 
   /**
@@ -40,7 +40,7 @@ module.exports = {
    */
   createRoom: (newroom) => {
     return rest
-      .call({ path: "rooms", method: "POST", data: newroom })
+      .makeRequest({ path: "rooms", method: "POST", data: newroom })
       .then((results) => {
         return results.name;
       });
@@ -56,7 +56,7 @@ module.exports = {
    * @return {object} returns delete confirmation object
    */
   deleteRoom: (roomName) => {
-    return rest.call({ path: "rooms/" + roomName, method: "DELETE", data: "" });
+    return rest.makeRequest({ path: "rooms/" + roomName, method: "DELETE", data: "" });
   },
 
   /**
@@ -69,7 +69,7 @@ module.exports = {
    * @return {object} returns delete confirmation object
    */
   getToken: (userData) => {
-    return rest.call({
+    return rest.makeRequest({
       path: "meeting-tokens",
       method: "POST",
       data: userData,

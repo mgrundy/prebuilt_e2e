@@ -17,7 +17,7 @@ module.exports = {
    *
    * @return {json} returns api json response
    */
-  call: ({ path, method, data }) => {
+  makeRequest: ({ path, method, data }) => {
     const ROOT_URI = `https://api.daily.co/v1/`;
 
     let requestData = {
